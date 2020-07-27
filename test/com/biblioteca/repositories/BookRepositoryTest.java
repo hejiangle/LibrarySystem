@@ -14,8 +14,8 @@ class BookRepositoryTest {
 
     @BeforeEach
     public void setUpTestData(){
-        Book bookOne = new Book("Iron Man");
-        Book bookTwo = new Book("Superman");
+        Book bookOne = new Book("Iron Man", "Stan Lee", 1970);
+        Book bookTwo = new Book("Superman", "Jerry Siegel, Joe Shuster, Wayne Boring", 1938);
         List<Book> books = Arrays.asList(bookOne, bookTwo);
 
         bookRepository = new BookRepositoryImp(books);

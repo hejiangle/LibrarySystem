@@ -10,7 +10,7 @@ import java.io.PrintStream;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class MessagePrinterTest {
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
@@ -30,10 +30,10 @@ class MessagePrinterTest {
 
     @Test
     public void printBookTable(){
-        List<Book> books = Arrays.asList(new Book("Test"));
+        List<Book> books = Arrays.asList(new Book("Test","Author", 2020));
         MessagePrinter.bookTable(books);
 
-        assertEquals("| Index | Book Name |\n| 1 | Test |\n", outContent.toString());
+        assertEquals("| Index | Book Name | Author | Published Year |\n| 1 | Test | Author | 2020 |\n", outContent.toString());
     }
 
     @AfterEach

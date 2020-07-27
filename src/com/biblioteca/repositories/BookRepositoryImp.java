@@ -6,7 +6,9 @@ import java.util.Arrays;
 import java.util.List;
 
 public class BookRepositoryImp implements BookRepository {
-    private final List<Book> originalBooks = Arrays.asList(new Book("Head First Java"), new Book("Design Pattern"));
+    private final List<Book> originalBooks = Arrays.asList(
+            new Book("Head First Java", "Bert Bates and Kathy Sierra", 2003),
+            new Book("Design Pattern", " Erich Gamma, John Vlissides, Ralph Johnson, Richard Helm", 1994));
     private final List<Book> books;
 
     public BookRepositoryImp(){
