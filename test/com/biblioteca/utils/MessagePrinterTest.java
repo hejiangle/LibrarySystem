@@ -1,11 +1,14 @@
 package com.biblioteca.utils;
 
+import com.biblioteca.models.Book;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.Arrays;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -23,6 +26,14 @@ class MessagePrinterTest {
         String expected = "Welcome to Biblioteca. Your one-stop-shop for great book titles in Xi'an!\n";
         MessagePrinter.welcome();
         assertEquals(expected, outContent.toString());
+    }
+
+    @Test
+    public void printBookTable(){
+        List<Book> books = Arrays.asList(new Book("Test"));
+        MessagePrinter.bookTable(books);
+
+        assertEquals("| Index | Book Name |\n| 1 | Test |\n", outContent.toString());
     }
 
     @AfterEach
