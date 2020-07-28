@@ -1,5 +1,6 @@
 package com.biblioteca.utils;
 
+import com.biblioteca.models.Action;
 import com.biblioteca.models.Book;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -34,6 +35,13 @@ class MessagePrinterTest {
         MessagePrinter.bookTable(books);
 
         assertEquals("| Index | Book Name | Author | Published Year |\n| 1 | Test | Author | 2020 |\n", outContent.toString());
+    }
+
+    @Test
+    public void printMenu(){
+        MessagePrinter.printMenu(Action.values());
+
+        assertEquals("Biblioteca provides following options for you:\n1. ListingBooks\n2. Exit\nGive your selection option number bellow:\n", outContent.toString());
     }
 
     @AfterEach

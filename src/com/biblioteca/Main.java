@@ -1,23 +1,30 @@
 package com.biblioteca;
 
-import com.biblioteca.models.Book;
-import com.biblioteca.repositories.BookRepository;
-import com.biblioteca.repositories.BookRepositoryImp;
+import com.biblioteca.models.Action;
+import com.biblioteca.services.Menu;
 import com.biblioteca.utils.MessagePrinter;
 
-import java.util.List;
+import java.util.Scanner;
 
 public class Main {
-    private static final BookRepository BOOK_REPOSITORY = new BookRepositoryImp();
 
     public static void main(String[] args) {
+
+        Scanner input = new Scanner(System.in);
 	    //1. Print welcome message
         MessagePrinter.welcome();
-        //2. Display all library books
-        List<Book> books = BOOK_REPOSITORY.listAllBooks();
-        MessagePrinter.bookTable(books);
-        //3. Enrich the booking model
         //4. Refactor code to add menu to list all actions
+        Menu menu = new Menu();
+        menu.show();
+        while (input.hasNextInt()){
+            Action option = Action.values()[input.nextInt() - 1];
+
+            try {
+                menu.execute(option);
+            } catch (Exception e){
+                MessagePrinter.printMessage(e.getMessage());
+            }
+        }
         //5. Invalid option should have notification
         //6. Quit the application
     }
