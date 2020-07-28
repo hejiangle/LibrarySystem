@@ -1,0 +1,15 @@
+plugins {
+    id 'java'
+}
+
+group 'org.thoughtworks'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '5.4'
+    testCompile group: 'org.mockito', name: 'mockito-junit-jupiter', version: '3.3.3'
+}

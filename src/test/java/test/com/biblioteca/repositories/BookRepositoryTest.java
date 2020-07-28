@@ -1,6 +1,8 @@
-package com.biblioteca.repositories;
+package test.com.biblioteca.repositories;
 
 import com.biblioteca.models.Book;
+import com.biblioteca.repositories.BookRepository;
+import com.biblioteca.repositories.BookRepositoryImp;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

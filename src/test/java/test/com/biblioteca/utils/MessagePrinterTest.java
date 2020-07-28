@@ -1,4 +1,4 @@
-package com.biblioteca.utils;
+package test.com.biblioteca.utils;
 
 import com.biblioteca.models.Action;
 import com.biblioteca.models.Book;
