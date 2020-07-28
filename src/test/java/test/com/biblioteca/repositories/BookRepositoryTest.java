@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 import java.util.List;
 
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class BookRepositoryTest {
@@ -24,7 +25,7 @@ class BookRepositoryTest {
     }
 
     @Test
-    public void givenSomeBooksWhenListAllBooksThenBookServiceReturnTheBookList(){
+    void givenSomeBooksWhenListAllBooksThenBookServiceReturnTheBookList(){
         List<Book> result = bookRepository.listAllBooks();
 
         assertEquals(2, result.size());

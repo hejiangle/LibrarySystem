@@ -2,6 +2,7 @@ package test.com.biblioteca.utils;
 
 import com.biblioteca.models.Action;
 import com.biblioteca.models.Book;
+import com.biblioteca.utils.MessagePrinter;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
