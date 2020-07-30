@@ -42,7 +42,7 @@ class MessagePrinterTest {
     public void printMenu(){
         MessagePrinter.printMenu(Action.values());
 
-        assertEquals("Biblioteca provides following options for you:\n1. ListingBooks\n2. Exit\nGive your selection option number bellow:\n", outContent.toString());
+        assertEquals("Biblioteca provides following options for you:\n1. ListingBooks\n2. RentBook\n3. Exit\n", outContent.toString());
     }
 
     @AfterEach

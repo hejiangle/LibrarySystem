@@ -1,15 +1,17 @@
 package com.biblioteca.models;
 
+import java.time.Year;
+
 public class Book {
     private final String name;
     private final String author;
-    private final int publishedYear;
+    private final Year publishedYear;
     private boolean isAvailable;
 
     public Book(String bookName, String author, int publishedYear) {
         this.name = bookName;
         this.author = author;
-        this.publishedYear = publishedYear;
+        this.publishedYear = Year.of(publishedYear);
         this.isAvailable = true;
     }
 
