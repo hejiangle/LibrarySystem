@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -37,5 +38,15 @@ class BookServiceTest {
 
         assertEquals(1, result.size());
         assertEquals(bookOne, result.get(0));
+    }
+
+    @Test
+    public void givenBooksWhenRentABookShouldSetThatBookIsNotAvailable() throws Exception {
+        Book book = new Book("renting-book", "author", 2020);
+        when(mockBookRepository.findBookByName("renting-book")).thenReturn(book);
+
+        bookService.rentBook("renting-book");
+
+        assertFalse(book.isAvailable());
     }
 }

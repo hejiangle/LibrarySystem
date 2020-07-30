@@ -4,6 +4,7 @@ import com.biblioteca.models.Book;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 public class BookRepositoryImp implements BookRepository {
     private final List<Book> originalBooks = Arrays.asList(
@@ -22,5 +23,20 @@ public class BookRepositoryImp implements BookRepository {
     @Override
     public List<Book> listAllBooks() {
         return  books.isEmpty() ? originalBooks : books;
+    }
+
+    @Override
+    public Book findBookByName(String bookName) throws Exception {
+        List<Book> allBooks = books.isEmpty() ? originalBooks : books;
+
+        Optional<Book> book = allBooks.stream().filter(bookInfo -> bookName.equals(bookInfo.getName())).findFirst();
+
+        if (book.isPresent()) {
+            return book.get();
+        }
+        else {
+            throw new Exception("No such book!");
+        }
+
     }
 }

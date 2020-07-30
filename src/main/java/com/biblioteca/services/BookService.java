@@ -16,4 +16,9 @@ public class BookService {
     public List<Book> listAvailableBooks(){
         return bookRepository.listAllBooks().stream().filter(Book::isAvailable).collect(Collectors.toList());
     }
+
+    public void rentBook(String bookName) throws Exception{
+        Book book = bookRepository.findBookByName(bookName);
+        book.rent();
+    }
 }

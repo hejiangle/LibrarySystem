@@ -16,11 +16,13 @@ public class Main {
         //4. Refactor code to add menu to list all actions
         Menu menu = new Menu();
         menu.show();
+        MessagePrinter.printNext();
         while (input.hasNextInt()){
             Action option = Action.values()[input.nextInt() - 1];
 
             try {
                 menu.execute(option);
+                MessagePrinter.printNext();
             } catch (Exception e){
                 MessagePrinter.printMessage(e.getMessage());
             }

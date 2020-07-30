@@ -9,8 +9,7 @@ import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 import java.util.List;
 
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 class BookRepositoryTest {
     private BookRepository bookRepository;
@@ -31,5 +30,20 @@ class BookRepositoryTest {
         assertEquals(2, result.size());
         assertEquals("Iron Man", result.get(0).getName());
         assertEquals("Superman", result.get(1).getName());
+    }
+
+    @Test
+    void givenBookNameWhenCallFindBookByNameShouldReturnThenSameNameBook() throws Exception {
+        Book book = bookRepository.findBookByName("Iron Man");
+
+        assertEquals("Iron Man", book.getName());
+        assertTrue(book.isAvailable());
+    }
+
+    @Test
+    void givenNotExistBookNameWhenCallFindBookByNameShouldThrowsException(){
+        assertThrows(Exception.class, () -> {
+            bookRepository.findBookByName("Not exist book");
+        });
     }
 }
